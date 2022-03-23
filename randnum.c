@@ -23,8 +23,8 @@ int main()
     else
     {
         printf("\n\nThanks for playing the game \n\n");
-        printf("Game Built and Developed by Pooranjoy Bhattacharya\n\nPress any key to terminate . . .");
-        getchar();
+        printf("Game Built and Developed by Pooranjoy Bhattacharya\n\n");
+        system("PAUSE");
     }
     return 0;
 }
@@ -68,7 +68,7 @@ int gamestart()
     }
     if (i==0)
     {
-        printf("\nBEtter Luck Next Time ! \n");
+        printf("\nBetter Luck Next Time ! \n");
     }
     
     printf("\nDo you want to play again ? \nPress 1 for 'YES' : ");
