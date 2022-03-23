@@ -24,7 +24,7 @@ int main()
     {
         printf("\n\nThanks for playing the game \n\n");
         printf("Game Built and Developed by Pooranjoy Bhattacharya\n\nPress any key to terminate . . .");
-        system("PAUSE");
+        getchar();
     }
     return 0;
 }
