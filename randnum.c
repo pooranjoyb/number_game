@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int x, y;
+int x, y, score = 0;
 int gamestart();
 
 int main()
@@ -22,6 +22,7 @@ int main()
     }
     else
     {
+        printf("\nYour score is : %d\n", score);
         printf("\n\nThanks for playing the game \n\n");
         printf("Game Built and Developed by Pooranjoy Bhattacharya\n\n");
         system("PAUSE");
@@ -31,19 +32,21 @@ int main()
 
 int gamestart()
 {
-    int i,ch, choice;
+    int i, ch, choice;
     printf("Welcome to Number guessing Game\n\nPress any key to start the game . . . ");
     getchar();
     printf("\nYou will have 10 chances to guess a number between 1 to 100\n\nPress any to generate the number . . .");
     getchar();
     printf("\nRandom Number Generated !");
-    for ( i = 9; i >= 0; i--)
+    for (i = 9; i >= 0; i--)
     {
         printf("\nEnter your guess : ");
         scanf("%d", &ch);
         if (ch == x)
         {
             printf("Congratulations, you have guessed the correct number ! \n");
+            score++;
+            printf("\nYour score is : %d\n", score);
             break;
         }
 
@@ -65,12 +68,13 @@ int gamestart()
             printf("\nYou have %d remaining guesses \n", i);
             printf("%d is not a number !", ch);
         }
+        if (i == 0)
+        {
+            printf("\nBetter Luck Next Time ! \n");
+            printf("\nYour score is : %d\n", score);
+        }
     }
-    if (i==0)
-    {
-        printf("\nBetter Luck Next Time ! \n");
-    }
-    
+
     printf("\nDo you want to play again ? \nPress 1 for 'YES' : ");
     scanf("%d", &choice);
     if (choice == 1)
