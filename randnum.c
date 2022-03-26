@@ -33,9 +33,9 @@ int main()
 int gamestart()
 {
     int i, ch, choice;
-    printf("Welcome to Number guessing Game\n\nPress any key to start the game . . . ");
+    printf("Welcome to Number Guessing Game\n\nPress any key to start the game . . . ");
     getchar();
-    printf("\nYou will have 10 chances to guess a number between 1 to 100\n\nPress any to generate the number . . .");
+    printf("\nYou will have 10 chances to guess a number between 1 to 100\n\nPress any key to generate the number . . .");
     getchar();
     printf("\nRandom Number Generated !");
     for (i = 9; i >= 0; i--)
@@ -44,8 +44,8 @@ int gamestart()
         scanf("%d", &ch);
         if (ch == x)
         {
-            printf("Congratulations, you have guessed the correct number ! \n");
-            score++;
+            printf("Congratulations, you have guessed the correct number ! \n\n+15 Points !");
+            score+=15;
             printf("\nYour score is : %d\n", score);
             break;
         }
