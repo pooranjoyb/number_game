@@ -1,13 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <stdio.h>  //standard input-output library
+#include <stdlib.h>//library to implement System clear function
+#include <time.h> //time library to change the value of rand() function
 
-int x, y, score = 0;
-int gamestart();
+int i, x, y, score = 0; // score integer initialized wwith 0
+int gamestart();        // function to start the game
 
 int main()
 {
-    system("CLS");
+    system("CLS"); // FUNTION TO CLEAR THE SCREEN IN COMMAND LINE
     int box[100];
     srand(time(NULL));
     for (int i = 0; i < 100; i++)
@@ -16,7 +16,7 @@ int main()
     }
     x = box[50];
     y = gamestart();
-    if (y == 0)
+    if (y == 0) // returned from the function gamestart();
     {
         main();
     }
@@ -30,50 +30,48 @@ int main()
     return 0;
 }
 
-int gamestart()
+int gamestart() // return type is set in order to make sure that the game can be started again
 {
-    int i, ch, choice;
+    int ch, choice;
     printf("Welcome to Number Guessing Game\n\nPress any key to start the game . . . ");
     getchar();
     printf("\nYou will have 10 chances to guess a number between 1 to 100\n\nPress any key to generate the number . . .");
     getchar();
     printf("\nRandom Number Generated !");
-    for (i = 9; i >= 0; i--)
+    for (i = 9; i >= 0; i--) // loop for the number of choices
     {
         printf("\nEnter your guess : ");
         scanf("%d", &ch);
+
         if (ch == x)
         {
-            printf("Congratulations, you have guessed the correct number ! \n\n+15 Points !");
-            score+=15;
+            printf("\nCongratulations, you have guessed the correct number ! \n\n+15 Points !");
+            score += 15; // score gets incremented with a correct answer
             printf("\nYour score is : %d\n", score);
             break;
         }
 
         else if (ch < x)
         {
-            printf("Try a Higher number ! ");
+            printf("Try a Higher number ! \n");
             printf("\nYou have %d remaining guesses \n", i);
         }
+
         else if (ch > x)
         {
-
-            printf("Try a Lower number ! ");
+            printf("Try a Lower number ! \n");
             printf("\nYou have %d remaining guesses \n", i);
         }
 
         else
         {
-
             printf("\nYou have %d remaining guesses \n", i);
-            printf("%d is not a number !", ch);
-        }
-        if (i == 0)
-        {
-            printf("\nBetter Luck Next Time ! \n");
-            printf("\nYour score is : %d\n", score);
+            printf("%d is not a number !\n", ch);
         }
     }
+
+    printf("\nBetter Luck Next Time ! \n");
+    printf("\nYour score is : %d\n", score);
 
     printf("\nDo you want to play again ? \nPress 1 for 'YES' : ");
     scanf("%d", &choice);
